@@ -18,16 +18,38 @@ public class AsignarMision {
     public void asignar(Heroe heroe, Mision mision)
             throws MisionNoCompatibleException {
 
-        if (!mision.esValida()) {
-            throw new IllegalArgumentException("Misión inválida");
+        String estado;
+        String icono;
+
+        if (heroe.puedeRealizar(mision)) {
+            estado = "APROBADA";
+            icono = "✅";
+        } else {
+            estado = "RECHAZADA";
+            icono = "❌";
         }
+
+        String mensaje = """
+                🦸 HÉROE: %s
+                🎯 MISIÓN: %s
+                🔎 Habilidad requerida: %s
+                %s ESTADO: %s
+                ---------------------------------
+              """
+                .formatted(
+                        heroe.getNombre(),
+                        mision.getNombre(),
+                        mision.getHabilidadRequerida().getNombre(),
+                        icono,
+                        estado
+                );
+
+        servicio.enviar(mensaje);
 
         if (!heroe.puedeRealizar(mision)) {
             throw new MisionNoCompatibleException(
-                    "El héroe no puede realizar esta misión");
+                    "El héroe no puede realizar esta misión"
+            );
         }
-
-        heroe.notificar("Se te ha asignado la misión: " + mision.getNombre());
-        servicio.enviar("🦸 " + heroe.getNombre() + " - Misión: " + mision.getNombre());
     }
 }

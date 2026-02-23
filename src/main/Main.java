@@ -7,10 +7,10 @@ package main;
 import heroes.*;
 import interfaces.Habilidad;
 import interfaces.ServicioMensajeria;
-import mensajeria.ServicioTelegram;
-import misiones.*;
 import java.util.ArrayList;
 import java.util.List;
+import mensajeria.ServicioTelegram;
+import misiones.*;
 
 public class Main {
 
@@ -48,20 +48,20 @@ public class Main {
 
         AsignarMision asignador = new AsignarMision(servicioTelegram);
 
-        for (int i = 0; i < heroes.size() && i < misiones.size(); i++) {
-            Heroe heroe = heroes.get(i);
-            Mision mision = misiones.get(i);
+        for (Heroe heroe : heroes) {
+            for (Mision mision : misiones) {
 
-            System.out.println("→ Asignando a " + heroe.getNombre() + 
-                             ": " + mision.getNombre());
+                System.out.println("→ Evaluando " + heroe.getNombre() +
+                        " para misión: " + mision.getNombre());
 
-            try {
-                asignador.asignar(heroe, mision);
-                System.out.println("  ✓ Misión asignada por Telegram\n");
-            } catch (MisionNoCompatibleException e) {
-                System.out.println("  ✗ " + e.getMessage() + "\n");
-            } catch (Exception e) {
-                System.out.println("  ✗ Error: " + e.getMessage() + "\n");
+                try {
+                    asignador.asignar(heroe, mision);
+                    System.out.println("  ✓ Resultado enviado a Telegram\n");
+                } catch (MisionNoCompatibleException e) {
+                    System.out.println("  ✗ " + e.getMessage() + "\n");
+                } catch (Exception e) {
+                    System.out.println("  ✗ Error: " + e.getMessage() + "\n");
+                }
             }
         }
     }
