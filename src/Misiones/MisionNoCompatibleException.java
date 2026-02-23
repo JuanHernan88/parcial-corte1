@@ -4,10 +4,9 @@
  */
 package Misiones;
 
-/**
- *
- * @author marib
- */
-public class MisionNoCompatibleExpetion {
-    
+public class MisionNoCompatibleException extends Exception {
+
+    public MisionNoCompatibleException(String mensaje) {
+        super(mensaje);
+    }
 }

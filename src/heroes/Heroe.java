@@ -1,10 +1,10 @@
 package heroes;
 
-import interfaces.Asignable;
-import interfaces.Habilidad;
-import interfaces.Identificable;
-import interfaces.Notificable;
-import misiones.Mision;
+import Interfaces.Asignable;
+import Interfaces.Habilidad;
+import Interfaces.Identificable;
+import Interfaces.Notificable;
+import Misiones.Mision;
 
 import java.util.List;
 
@@ -24,11 +24,11 @@ public abstract class Heroe implements Identificable, Asignable, Notificable {
     }
 
     @Override
-    public boolean puedeRealizar(Mision mision) {
+    public boolean puedeRealizar(Mision Mision) {
 
         for (int i = 0; i < habilidades.size(); i++) {
             if (habilidades.get(i).getNombre()
-                    .equalsIgnoreCase(mision.getHabilidadRequerida().getNombre())) {
+                    .equalsIgnoreCase(Mision.getHabilidadRequerida().getNombre())) {
                 return true;
             }
         }
