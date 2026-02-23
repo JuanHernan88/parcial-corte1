@@ -1,6 +1,6 @@
-package Mensajeria;
+package mensajeria;
 
-import Interfaces.ServicioMensajeria;
+import interfaces.ServicioMensajeria;
 
 public class ServicioEmail implements ServicioMensajeria {
 

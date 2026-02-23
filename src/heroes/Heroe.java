@@ -1,10 +1,10 @@
 package heroes;
 
-import Interfaces.Asignable;
-import Interfaces.Habilidad;
-import Interfaces.Identificable;
-import Interfaces.Notificable;
-import Misiones.Mision;
+import interfaces.Asignable;
+import interfaces.Habilidad;
+import interfaces.Identificable;
+import interfaces.Notificable;
+import misiones.Mision;
 
 import java.util.List;
 

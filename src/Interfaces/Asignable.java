@@ -1,6 +1,6 @@
-package Interfaces;
+package interfaces;
 
-import Misiones.Mision;
+import misiones.Mision;
 
 public interface Asignable {
     boolean puedeRealizar(Mision mision);

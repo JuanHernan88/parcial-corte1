@@ -1,6 +1,6 @@
 package heroes;
 
-import Interfaces.Habilidad;
+import interfaces.Habilidad;
 
 public class HabilidadBasica implements Habilidad {
 

@@ -1,7 +1,7 @@
 package config;
 
-import Interfaces.ServicioMensajeria;
-import Mensajeria.ServicioEmail;
+import interfaces.ServicioMensajeria;
+import mensajeria.ServicioEmail;
 
 public class Configuracion {
 
