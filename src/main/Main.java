@@ -7,6 +7,7 @@ package main;
 import heroes.IronMan;
 import interfaces.Habilidad;
 import interfaces.ServicioMensajeria;
+import mensajeria.ServicioTelegram;
 import misiones.*;
 import config.Configuracion;
 
@@ -29,5 +30,10 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        ServicioMensajeria servicioTelegram =
+        new ServicioTelegram("8664584109:AAEAlCBAR4cgGUsE15kXW9dioNAJkBGp3ac", "413406124");
+
+        AsignarMision asignadorTelegram = new AsignarMision(servicioTelegram);
     }
 }
