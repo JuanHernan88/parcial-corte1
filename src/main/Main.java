@@ -9,31 +9,33 @@ import interfaces.Habilidad;
 import interfaces.ServicioMensajeria;
 import mensajeria.ServicioTelegram;
 import misiones.*;
-import config.Configuracion;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        // Crear habilidad
         Habilidad volar = () -> "Volar";
 
+        // Crear héroe
         IronMan ironMan = new IronMan();
 
+        // Crear misión
         Mision mision = new Mision("Rescatar civiles", volar);
 
-        ServicioMensajeria servicio = Configuracion.crearServicio();
+        String tokenTelegram = "8772824289:AAFlcHu2sySiKjF68FJV1YEcjUDs-b6YbO4";
+        String chatIdTelegram = "1233282815";
 
-        AsignarMision asignador = new AsignarMision(servicio);
+        ServicioMensajeria servicioTelegram =
+                new ServicioTelegram(tokenTelegram, chatIdTelegram);
+
+        AsignarMision asignador =
+                new AsignarMision(servicioTelegram);
 
         try {
             asignador.asignar(ironMan, mision);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-
-        ServicioMensajeria servicioTelegram =
-        new ServicioTelegram("8664584109:AAEAlCBAR4cgGUsE15kXW9dioNAJkBGp3ac", "413406124");
-
-        AsignarMision asignadorTelegram = new AsignarMision(servicioTelegram);
     }
 }
