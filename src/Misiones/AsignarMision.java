@@ -28,6 +28,6 @@ public class AsignarMision {
         }
 
         heroe.notificar("Se te ha asignado la misión: " + mision.getNombre());
-        servicio.enviar("Misión asignada a " + heroe.getNombre());
+        servicio.enviar("🦸 " + heroe.getNombre() + " - Misión: " + mision.getNombre());
     }
 }
