@@ -1,13 +1,18 @@
 package heroes;
 
-import java.util.ArrayList;
+import interfaces.Habilidad;
+import java.util.List;
 
 public class Thor extends Heroe {
 
     public Thor() {
-        super("Thor", new ArrayList<>());
+        super("Thor", crearHabilidades());
+    }
 
-        habilidades.add(new HabilidadBasica("ControlDeTrueno"));
-        habilidades.add(new HabilidadBasica("Volar"));
+    private static List<Habilidad> crearHabilidades() {
+        return List.of(
+            new HabilidadBasica("ControlDeTrueno"),
+            new HabilidadBasica("Volar")
+        );
     }
 }

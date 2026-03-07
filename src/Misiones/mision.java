@@ -6,6 +6,7 @@ package misiones;
 
 import interfaces.Identificable;
 import interfaces.Validable;
+import interfaces.Habilidad;
 
 
 public class Mision implements Identificable, Validable {

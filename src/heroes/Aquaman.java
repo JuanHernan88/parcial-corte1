@@ -1,13 +1,18 @@
 package heroes;
 
-import java.util.ArrayList;
+import java.util.List;
+import interfaces.Habilidad;
 
 public class Aquaman extends Heroe {
 
     public Aquaman() {
-        super("Aquaman", new ArrayList<>());
+        super("Aquaman", crearHabilidades());
+    }
 
-        habilidades.add(new HabilidadBasica("Acuatica"));
-        habilidades.add(new HabilidadBasica("Fuerza"));
+    private static List<Habilidad> crearHabilidades() {
+        return List.of(
+            new HabilidadBasica("Acuatica"),
+            new HabilidadBasica("Fuerza")
+        );
     }
 }

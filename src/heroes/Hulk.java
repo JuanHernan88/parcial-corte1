@@ -1,13 +1,18 @@
 package heroes;
 
-import java.util.ArrayList;
+import interfaces.Habilidad;
+import java.util.List;
 
 public class Hulk extends Heroe {
 
     public Hulk() {
-        super("Hulk", new ArrayList<>());
+        super("Hulk", crearHabilidades());
+    }
 
-        habilidades.add(new HabilidadBasica("Fuerza"));
-        habilidades.add(new HabilidadBasica("Resistencia"));
+    private static List<Habilidad> crearHabilidades() {
+        return List.of(
+            new HabilidadBasica("Fuerza"),
+            new HabilidadBasica("Resistencia")
+        );
     }
 }
