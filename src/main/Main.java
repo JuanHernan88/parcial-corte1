@@ -66,18 +66,18 @@ public class Main {
         for (Heroe heroe : heroes) {
             for (Mision mision : misiones) {
 
-                System.out.println("→ Evaluando " + heroe.getNombre()
+                System.out.println(" Evaluando " + heroe.getNombre()
                         + " para mision: " + mision.getNombre());
 
                 try {
                     asignador.asignarMision(heroe, mision);
-                    System.out.println("  ✓ Resultado enviado\n");
+                    System.out.println(" Resultado enviado\n");
 
                 } catch (MisionNoCompatibleException e) {
-                    System.out.println("  ✗ " + e.getMessage() + "\n");
+                    System.out.println("   " + e.getMessage() + "\n");
 
                 } catch (Exception e) {
-                    System.out.println("  ✗ Error: " + e.getMessage() + "\n");
+                    System.out.println(" Error: " + e.getMessage() + "\n");
                 }
             }
         }
