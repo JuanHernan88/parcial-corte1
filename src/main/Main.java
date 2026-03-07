@@ -52,7 +52,7 @@ public class Main {
         return List.of(
                 new Mision("Rescatar civiles", volar),
                 new Mision("Controlar tormenta", controlTrueno),
-                new Mision("Destruir obstáculos", fuerza),
+                new Mision("Destruir obstaculos", fuerza),
                 new Mision("Infiltrarse en edificio", trepar),
                 new Mision("Rescate submarino", acuatica)
         );
@@ -67,7 +67,7 @@ public class Main {
             for (Mision mision : misiones) {
 
                 System.out.println("→ Evaluando " + heroe.getNombre()
-                        + " para misión: " + mision.getNombre());
+                        + " para mision: " + mision.getNombre());
 
                 try {
                     asignador.asignarMision(heroe, mision);

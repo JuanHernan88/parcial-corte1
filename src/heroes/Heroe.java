@@ -15,7 +15,7 @@ public abstract class Heroe implements Identificable, Asignable, Notificable {
     private final List<Habilidad> habilidades;
 
     public Heroe(String nombre, List<Habilidad> habilidades) {
-        this.nombre = Objects.requireNonNull(nombre, "El nombre del héroe no puede ser null");
+        this.nombre = Objects.requireNonNull(nombre, "El nombre del heroe no puede ser null");
         this.habilidades = Objects.requireNonNull(habilidades, "La lista de habilidades no puede ser null");
     }
 

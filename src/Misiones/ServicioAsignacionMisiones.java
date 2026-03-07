@@ -27,7 +27,7 @@ public class ServicioAsignacionMisiones {
 
     private void validarMision(Mision mision) {
         if (!mision.esValida()) {
-            throw new IllegalArgumentException("Misión inválida");
+            throw new IllegalArgumentException("Mision invalida");
         }
     }
 
@@ -36,15 +36,15 @@ public class ServicioAsignacionMisiones {
 
         if (!heroe.puedeRealizar(mision)) {
             throw new MisionNoCompatibleException(
-                    "El héroe no puede realizar esta misión");
+                    "El heroe no puede realizar esta mision");
         }
     }
 
     private void notificarHeroe(Heroe heroe, Mision mision) {
-        heroe.notificar("Se te ha asignado la misión: " + mision.getNombre());
+        heroe.notificar("Se te ha asignado la mision: " + mision.getNombre());
     }
 
     private void notificarSistema(Heroe heroe) {
-        servicioMensajeria.enviar("Misión asignada a " + heroe.getNombre());
+        servicioMensajeria.enviar("Mision asignada a " + heroe.getNombre());
     }
 }

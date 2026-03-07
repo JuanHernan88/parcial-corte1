@@ -14,7 +14,7 @@ public class HabilidadBasica implements Habilidad {
         Objects.requireNonNull(nombre, "El nombre de la habilidad no puede ser null");
 
         if (nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre de la habilidad no puede estar vacío");
+            throw new IllegalArgumentException("El nombre de la habilidad no puede estar vacio");
         }
 
         this.nombre = nombre;
