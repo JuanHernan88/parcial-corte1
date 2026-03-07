@@ -4,9 +4,20 @@
  */
 package misiones;
 
+/**
+ * Excepción que se lanza cuando un héroe no puede realizar una misión.
+ */
 public class MisionNoCompatibleException extends Exception {
+
+    public MisionNoCompatibleException() {
+        super();
+    }
 
     public MisionNoCompatibleException(String mensaje) {
         super(mensaje);
+    }
+
+    public MisionNoCompatibleException(String mensaje, Throwable causa) {
+        super(mensaje, causa);
     }
 }

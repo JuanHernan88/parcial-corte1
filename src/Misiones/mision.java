@@ -4,12 +4,14 @@
  */
 package misiones;
 
-import interfaces.*;
+import interfaces.Identificable;
+import interfaces.Validable;
+
 
 public class Mision implements Identificable, Validable {
 
-    private String nombre;
-    private Habilidad habilidadRequerida;
+    private final String nombre;
+    private final Habilidad habilidadRequerida;
 
     public Mision(String nombre, Habilidad habilidadRequerida) {
         this.nombre = nombre;
@@ -27,6 +29,7 @@ public class Mision implements Identificable, Validable {
 
     @Override
     public boolean esValida() {
-        return habilidadRequerida != null && nombre != null;
+        return nombre != null && !nombre.trim().isEmpty()
+                && habilidadRequerida != null;
     }
 }
