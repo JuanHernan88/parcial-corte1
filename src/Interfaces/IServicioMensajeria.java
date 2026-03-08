@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface ServicioMensajeria {
+public interface IServicioMensajeria {
     void enviar(String mensaje);
 }

@@ -1,7 +1,7 @@
 package heroes;
 
 import java.util.List;
-import interfaces.Habilidad;
+import interfaces.IHabilidad;
 
 public class Aquaman extends Heroe {
 
@@ -9,7 +9,7 @@ public class Aquaman extends Heroe {
         super("Aquaman", crearHabilidades());
     }
 
-    private static List<Habilidad> crearHabilidades() {
+    private static List<IHabilidad> crearHabilidades() {
         return List.of(
             new HabilidadBasica("Acuatica"),
             new HabilidadBasica("Fuerza")

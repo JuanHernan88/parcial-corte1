@@ -1,9 +1,9 @@
 package mensajeria;
 
-import interfaces.ServicioMensajeria;
+import interfaces.IServicioMensajeria;
 
 
-public class ServicioEmail implements ServicioMensajeria {
+public class ServicioEmail implements IServicioMensajeria {
 
     private String destinatario;
 

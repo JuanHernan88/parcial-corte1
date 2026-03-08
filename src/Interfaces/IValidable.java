@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Validable {
+public interface IValidable {
     boolean esValida();
 }

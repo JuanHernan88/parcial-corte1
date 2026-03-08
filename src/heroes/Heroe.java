@@ -1,20 +1,20 @@
 package heroes;
 
-import interfaces.Asignable;
-import interfaces.Habilidad;
-import interfaces.Identificable;
-import interfaces.Notificable;
 import misiones.Mision;
 
 import java.util.List;
 import java.util.Objects;
+import interfaces.IAsignable;
+import interfaces.IHabilidad;
+import interfaces.IIdentificable;
+import interfaces.INotificable;
 
-public abstract class Heroe implements Identificable, Asignable, Notificable {
+public abstract class Heroe implements IIdentificable, IAsignable, INotificable {
 
     private final String nombre;
-    private final List<Habilidad> habilidades;
+    private final List<IHabilidad> habilidades;
 
-    public Heroe(String nombre, List<Habilidad> habilidades) {
+    public Heroe(String nombre, List<IHabilidad> habilidades) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre del heroe no puede ser null");
         this.habilidades = Objects.requireNonNull(habilidades, "La lista de habilidades no puede ser null");
     }
@@ -27,7 +27,7 @@ public abstract class Heroe implements Identificable, Asignable, Notificable {
     @Override
     public boolean puedeRealizar(Mision mision) {
 
-        for (Habilidad habilidad : habilidades) {
+        for (IHabilidad habilidad : habilidades) {
             if (habilidad.getNombre()
                     .equalsIgnoreCase(mision.getHabilidadRequerida().getNombre())) {
                 return true;

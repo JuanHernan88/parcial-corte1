@@ -4,17 +4,17 @@
  */
 package misiones;
 
-import interfaces.Identificable;
-import interfaces.Validable;
-import interfaces.Habilidad;
+import interfaces.IHabilidad;
+import interfaces.IIdentificable;
+import interfaces.IValidable;
 
 
-public class Mision implements Identificable, Validable {
+public class Mision implements IIdentificable, IValidable {
 
     private final String nombre;
-    private final Habilidad habilidadRequerida;
+    private final IHabilidad habilidadRequerida;
 
-    public Mision(String nombre, Habilidad habilidadRequerida) {
+    public Mision(String nombre, IHabilidad habilidadRequerida) {
         this.nombre = nombre;
         this.habilidadRequerida = habilidadRequerida;
     }
@@ -24,7 +24,7 @@ public class Mision implements Identificable, Validable {
         return nombre;
     }
 
-    public Habilidad getHabilidadRequerida() {
+    public IHabilidad getHabilidadRequerida() {
         return habilidadRequerida;
     }
 

@@ -2,6 +2,6 @@ package interfaces;
 
 import misiones.Mision;
 
-public interface Asignable {
+public interface IAsignable {
     boolean puedeRealizar(Mision mision);
 }

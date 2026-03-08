@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Habilidad {
+public interface IHabilidad {
     String getNombre();
 }

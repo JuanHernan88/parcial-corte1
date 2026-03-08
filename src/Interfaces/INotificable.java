@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Notificable {
+public interface INotificable {
     void notificar(String mensaje);
 }

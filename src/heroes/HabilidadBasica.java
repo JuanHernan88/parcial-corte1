@@ -1,12 +1,12 @@
 package heroes;
 
-import interfaces.Habilidad;
 import java.util.Objects;
+import interfaces.IHabilidad;
 
 /**
  * Representa una habilidad básica que puede tener un héroe.
  */
-public class HabilidadBasica implements Habilidad {
+public class HabilidadBasica implements IHabilidad {
 
     private final String nombre;
 

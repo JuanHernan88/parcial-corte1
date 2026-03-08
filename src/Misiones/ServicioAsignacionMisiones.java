@@ -5,13 +5,13 @@
 package misiones;
 
 import heroes.Heroe;
-import interfaces.ServicioMensajeria;
+import interfaces.IServicioMensajeria;
 
 public class ServicioAsignacionMisiones {
 
-    private ServicioMensajeria servicioMensajeria;
+    private IServicioMensajeria servicioMensajeria;
 
-    public ServicioAsignacionMisiones(ServicioMensajeria servicioMensajeria) {
+    public ServicioAsignacionMisiones(IServicioMensajeria servicioMensajeria) {
         this.servicioMensajeria = servicioMensajeria;
     }
 

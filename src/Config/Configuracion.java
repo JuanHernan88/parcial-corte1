@@ -1,12 +1,12 @@
 package config;
 
-import interfaces.ServicioMensajeria;
 import mensajeria.ServicioEmail;
 import mensajeria.ServicioTelegram;
+import interfaces.IServicioMensajeria;
 
 public class Configuracion {
 
-    public static ServicioMensajeria crearServicio(String tipo) {
+    public static IServicioMensajeria crearServicio(String tipo) {
 
         switch (tipo) {
 

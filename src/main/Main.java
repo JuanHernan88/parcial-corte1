@@ -5,12 +5,12 @@
 package main;
 
 import heroes.*;
-import interfaces.Habilidad;
-import interfaces.ServicioMensajeria;
 import mensajeria.ServicioTelegram;
 import misiones.*;
 
 import java.util.List;
+import interfaces.IHabilidad;
+import interfaces.IServicioMensajeria;
 
 /**
  * Punto de entrada del sistema.
@@ -22,7 +22,7 @@ public class Main {
         List<Heroe> heroes = crearHeroes();
         List<Mision> misiones = crearMisiones();
 
-        ServicioMensajeria servicio =
+        IServicioMensajeria servicio =
                 new ServicioTelegram("TOKEN", "CHAT_ID");
 
         ServicioAsignacionMisiones asignador =
@@ -43,11 +43,11 @@ public class Main {
 
     private static List<Mision> crearMisiones() {
 
-        Habilidad volar = () -> "Volar";
-        Habilidad fuerza = () -> "Fuerza";
-        Habilidad controlTrueno = () -> "ControlDeTrueno";
-        Habilidad trepar = () -> "TreparMuros";
-        Habilidad acuatica = () -> "Acuatica";
+        IHabilidad volar = () -> "Volar";
+        IHabilidad fuerza = () -> "Fuerza";
+        IHabilidad controlTrueno = () -> "ControlDeTrueno";
+        IHabilidad trepar = () -> "TreparMuros";
+        IHabilidad acuatica = () -> "Acuatica";
 
         return List.of(
                 new Mision("Rescatar civiles", volar),
