@@ -1,8 +1,8 @@
 package config;
 
+import interfaces.IServicioMensajeria;
 import mensajeria.ServicioEmail;
 import mensajeria.ServicioTelegram;
-import interfaces.IServicioMensajeria;
 
 public class Configuracion {
 
