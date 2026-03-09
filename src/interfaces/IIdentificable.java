@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Identificable {
+public interface IIdentificable {
     String getNombre();
 }

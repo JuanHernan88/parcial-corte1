@@ -1,6 +1,5 @@
 package mensajeria;
 
-import interfaces.ServicioMensajeria;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import interfaces.IServicioMensajeria;
 
 /**
  * Implementación del servicio de mensajería para enviar mensajes
@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
  * @author Jacobo
  * @version 1.0
  */
-public class ServicioTelegram implements ServicioMensajeria {
+public class ServicioTelegram implements IServicioMensajeria {
 
     /**
      * Token del bot proporcionado por BotFather.

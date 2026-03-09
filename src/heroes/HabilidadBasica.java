@@ -1,8 +1,8 @@
 package heroes;
 
-import interfaces.Habilidad;
+import interfaces.IHabilidad;
 
-public class HabilidadBasica implements Habilidad {
+public class HabilidadBasica implements IHabilidad {
 
     private String nombre;
 

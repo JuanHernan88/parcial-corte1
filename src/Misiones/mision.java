@@ -6,12 +6,12 @@ package misiones;
 
 import interfaces.*;
 
-public class Mision implements Identificable, Validable {
+public class Mision implements IIdentificable, IValidable {
 
     private String nombre;
-    private Habilidad habilidadRequerida;
+    private IHabilidad habilidadRequerida;
 
-    public Mision(String nombre, Habilidad habilidadRequerida) {
+    public Mision(String nombre, IHabilidad habilidadRequerida) {
         this.nombre = nombre;
         this.habilidadRequerida = habilidadRequerida;
     }
@@ -21,7 +21,7 @@ public class Mision implements Identificable, Validable {
         return nombre;
     }
 
-    public Habilidad getHabilidadRequerida() {
+    public IHabilidad getHabilidadRequerida() {
         return habilidadRequerida;
     }
 

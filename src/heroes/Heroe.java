@@ -1,12 +1,12 @@
 package heroes;
 
-import interfaces.Asignable;
-import interfaces.Habilidad;
-import interfaces.Identificable;
-import interfaces.Notificable;
 import misiones.Mision;
 
 import java.util.List;
+import interfaces.IAsignable;
+import interfaces.IHabilidad;
+import interfaces.IIdentificable;
+import interfaces.INotificable;
 
 /**
  * Clase abstracta que representa un héroe dentro del sistema.
@@ -16,9 +16,9 @@ import java.util.List;
  *
  * <p>Esta clase implementa múltiples interfaces:
  * <ul>
- *     <li>{@link Identificable} → Permite obtener su nombre.</li>
- *     <li>{@link Asignable} → Define si puede realizar una misión.</li>
- *     <li>{@link Notificable} → Permite enviar notificaciones al héroe.</li>
+ *     <li>{@link IIdentificable} → Permite obtener su nombre.</li>
+ *     <li>{@link IAsignable} → Define si puede realizar una misión.</li>
+ *     <li>{@link INotificable} → Permite enviar notificaciones al héroe.</li>
  * </ul>
  *
  * <p>Al ser abstracta, debe ser extendida por tipos concretos
@@ -27,7 +27,7 @@ import java.util.List;
  * @author Jacobo
  * @version 1.0
  */
-public abstract class Heroe implements Identificable, Asignable, Notificable {
+public abstract class Heroe implements IIdentificable, IAsignable, INotificable {
 
     /**
      * Nombre del héroe.
@@ -37,7 +37,7 @@ public abstract class Heroe implements Identificable, Asignable, Notificable {
     /**
      * Lista de habilidades que posee el héroe.
      */
-    protected List<Habilidad> habilidades;
+    protected List<IHabilidad> habilidades;
 
     /**
      * Constructor del héroe.
@@ -45,7 +45,7 @@ public abstract class Heroe implements Identificable, Asignable, Notificable {
      * @param nombre      Nombre del héroe.
      * @param habilidades Lista de habilidades asociadas al héroe.
      */
-    public Heroe(String nombre, List<Habilidad> habilidades) {
+    public Heroe(String nombre, List<IHabilidad> habilidades) {
         this.nombre = nombre;
         this.habilidades = habilidades;
     }

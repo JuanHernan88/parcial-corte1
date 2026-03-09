@@ -5,13 +5,13 @@
 package misiones;
 
 import heroes.Heroe;
-import interfaces.ServicioMensajeria;
+import interfaces.IServicioMensajeria;
 
 /**
  * Clase encargada de gestionar la asignación de misiones a los héroes.
  *
  * <p>Esta clase aplica el principio de Inversión de Dependencias (DIP),
- * ya que depende de la abstracción {@link ServicioMensajeria} y no de una
+ * ya que depende de la abstracción {@link IServicioMensajeria} y no de una
  * implementación concreta.</p>
  *
  * <p>Su responsabilidad principal es:</p>
@@ -30,7 +30,7 @@ public class AsignarMision {
      * Servicio utilizado para enviar notificaciones
      * sobre el estado de la misión.
      */
-    private ServicioMensajeria servicio;
+    private IServicioMensajeria servicio;
 
     /**
      * Constructor que recibe el servicio de mensajería
@@ -39,7 +39,7 @@ public class AsignarMision {
      * @param servicio Implementación del servicio de mensajería
      *                 (por ejemplo, Telegram, Email, etc.).
      */
-    public AsignarMision(ServicioMensajeria servicio) {
+    public AsignarMision(IServicioMensajeria servicio) {
         this.servicio = servicio;
     }
 

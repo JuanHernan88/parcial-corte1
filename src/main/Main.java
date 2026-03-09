@@ -5,12 +5,12 @@
 package main;
 
 import heroes.*;
-import interfaces.Habilidad;
-import interfaces.ServicioMensajeria;
 import java.util.ArrayList;
 import java.util.List;
 import mensajeria.ServicioTelegram;
 import misiones.*;
+import interfaces.IHabilidad;
+import interfaces.IServicioMensajeria;
 
 /*
 * @author Maribel
@@ -22,11 +22,11 @@ public class Main {
     public static void main(String[] args) {
 
         // Crear habilidades
-        Habilidad volar = () -> "Volar";
-        Habilidad fuerza = () -> "Fuerza";
-        Habilidad controlTrueno = () -> "ControlDeTrueno";
-        Habilidad trepar = () -> "TreparMuros";
-        Habilidad acuatica = () -> "Acuatica";
+        IHabilidad volar = () -> "Volar";
+        IHabilidad fuerza = () -> "Fuerza";
+        IHabilidad controlTrueno = () -> "ControlDeTrueno";
+        IHabilidad trepar = () -> "TreparMuros";
+        IHabilidad acuatica = () -> "Acuatica";
 
         // Crear lista de superhéroes
         List<Heroe> heroes = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Main {
         String tokenTelegram = "8772824289:AAFlcHu2sySiKjF68FJV1YEcjUDs-b6YbO4";
         String chatIdTelegram = "5895943444";
 
-        ServicioMensajeria servicioTelegram =
+        IServicioMensajeria servicioTelegram =
                 new ServicioTelegram(tokenTelegram, chatIdTelegram);
 
         AsignarMision asignador = new AsignarMision(servicioTelegram);

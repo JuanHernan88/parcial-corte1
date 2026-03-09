@@ -1,11 +1,11 @@
 package config;
 
-import interfaces.ServicioMensajeria;
 import mensajeria.ServicioEmail;
+import interfaces.IServicioMensajeria;
 
 public class Configuracion {
 
-    public static ServicioMensajeria crearServicio() {
+    public static IServicioMensajeria crearServicio() {
         return new ServicioEmail();
     }
 }
