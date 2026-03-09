@@ -139,6 +139,8 @@ public class VentanaPrincipal extends JFrame {
 
         JButton btnAsignar = new JButton("Asignar Misiones");
         btnAsignar.setBounds(280,380,150,30);
+        btnAsignar.setForeground(Color.WHITE);
+        btnAsignar.setBackground(botonColor);
         add(btnAsignar);
 
         btnHeroe.addActionListener(e -> registrarHeroe());
