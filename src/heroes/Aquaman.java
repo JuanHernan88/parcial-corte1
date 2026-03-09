@@ -1,22 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package heroes;
 
-import java.util.Arrays;
-import java.util.List;
+/**
+ *
+ * @author juanl
+ */
+
 import misiones.TipoHabilidad;
 
-public class Aquaman extends Heroe {
+public class Aquaman extends Heroe{
 
-    public Aquaman(String nombre) {
+    public Aquaman(String nombre){
+
         super(nombre);
-    }
-
-    @Override
-    public List<TipoHabilidad> getHabilidades() {
-
-        return Arrays.asList(
-                TipoHabilidad.ACUATICO,
-                TipoHabilidad.FUERZA
-        );
+        agregarHabilidad(TipoHabilidad.AGUA);
 
     }
 

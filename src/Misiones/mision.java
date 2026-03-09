@@ -1,25 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package misiones;
 
 public class Mision {
 
     private String nombre;
-    private TipoHabilidad habilidadRequerida;
+    private TipoHabilidad habilidad;
 
-    public Mision(String nombre, TipoHabilidad habilidadRequerida) {
+    public Mision(String nombre, TipoHabilidad habilidad){
         this.nombre = nombre;
-        this.habilidadRequerida = habilidadRequerida;
+        this.habilidad = habilidad;
     }
 
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
     }
 
-    public TipoHabilidad getHabilidadRequerida() {
-        return habilidadRequerida;
+    public TipoHabilidad getHabilidad(){
+        return habilidad;
     }
 
 }

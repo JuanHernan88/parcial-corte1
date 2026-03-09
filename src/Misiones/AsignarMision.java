@@ -1,26 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package misiones;
 
 import heroes.Heroe;
+import interfaces.ServicioMensajeria;
 import java.util.List;
 
 public class AsignarMision {
 
-    public Heroe asignar(Mision mision, List<Heroe> heroes) {
+    private ServicioMensajeria servicio;
 
-        for (Heroe h : heroes) {
+    public AsignarMision(ServicioMensajeria servicio){
+        this.servicio = servicio;
+    }
 
-            if (h.getHabilidades().contains(mision.getHabilidadRequerida())) {
-                return h;
-            }
+   public Heroe asignar(Mision mision, List<Heroe> heroes)
+        throws MisionNoCompatibleException {
 
+    for (Heroe h : heroes) {
+
+        if (h.tieneHabilidad(mision.getHabilidad())) {
+
+            servicio.enviarMensaje(
+                    "🚨 NUEVA MISION\n"
+                    + "Heroe: " + h.getNombre()
+                    + "\nMision: " + mision.getNombre()
+            );
+
+            return h;
         }
 
-        throw new MisionNoCompatibleException(
-                "Ningún héroe puede realizar la misión"
-        );
     }
+
+    throw new MisionNoCompatibleException();
+
+}
+
 }
