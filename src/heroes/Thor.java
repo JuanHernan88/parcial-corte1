@@ -1,13 +1,24 @@
 package heroes;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import misiones.TipoHabilidad;
 
 public class Thor extends Heroe {
 
-    public Thor() {
-        super("Thor", new ArrayList<>());
-
-        habilidades.add(new HabilidadBasica("ControlDeTrueno"));
-        habilidades.add(new HabilidadBasica("Volar"));
+    public Thor(String nombre) {
+        super(nombre);
     }
+
+    @Override
+    public List<TipoHabilidad> getHabilidades() {
+
+        return Arrays.asList(
+                TipoHabilidad.FUERZA,
+                TipoHabilidad.VOLAR,
+                TipoHabilidad.FUEGO
+        );
+
+    }
+
 }

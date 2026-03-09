@@ -1,13 +1,22 @@
 package heroes;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import misiones.TipoHabilidad;
 
 public class Hulk extends Heroe {
 
-    public Hulk() {
-        super("Hulk", new ArrayList<>());
-
-        habilidades.add(new HabilidadBasica("Fuerza"));
-        habilidades.add(new HabilidadBasica("Resistencia"));
+    public Hulk(String nombre) {
+        super(nombre);
     }
+
+    @Override
+    public List<TipoHabilidad> getHabilidades() {
+
+        return Arrays.asList(
+                TipoHabilidad.FUERZA
+        );
+
+    }
+
 }

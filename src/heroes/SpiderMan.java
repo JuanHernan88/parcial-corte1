@@ -1,14 +1,23 @@
 package heroes;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import misiones.TipoHabilidad;
 
 public class SpiderMan extends Heroe {
 
-    public SpiderMan() {
-        super("SpiderMan", new ArrayList<>());
-
-        habilidades.add(new HabilidadBasica("TreparMuros"));
-        habilidades.add(new HabilidadBasica("Agilidad"));
-        habilidades.add(new HabilidadBasica("SentidoAracnido"));
+    public SpiderMan(String nombre) {
+        super(nombre);
     }
+
+    @Override
+    public List<TipoHabilidad> getHabilidades() {
+
+        return Arrays.asList(
+                TipoHabilidad.TREPAR,
+                TipoHabilidad.SIGILO
+        );
+
+    }
+
 }
