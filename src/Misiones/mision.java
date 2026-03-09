@@ -4,29 +4,22 @@
  */
 package misiones;
 
-import interfaces.*;
-
-public class Mision implements IIdentificable, IValidable {
+public class Mision {
 
     private String nombre;
-    private IHabilidad habilidadRequerida;
+    private TipoHabilidad habilidadRequerida;
 
-    public Mision(String nombre, IHabilidad habilidadRequerida) {
+    public Mision(String nombre, TipoHabilidad habilidadRequerida) {
         this.nombre = nombre;
         this.habilidadRequerida = habilidadRequerida;
     }
 
-    @Override
     public String getNombre() {
         return nombre;
     }
 
-    public IHabilidad getHabilidadRequerida() {
+    public TipoHabilidad getHabilidadRequerida() {
         return habilidadRequerida;
     }
 
-    @Override
-    public boolean esValida() {
-        return habilidadRequerida != null && nombre != null;
-    }
 }
