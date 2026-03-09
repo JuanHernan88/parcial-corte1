@@ -5,8 +5,10 @@
 package misiones;
 
 /**
- *
- * @author juanl
+ * Enum define los tipos de habilidades
+ * que pueden tener los héroes y requerir las misiones.
+ * 
+ * @author Maribel Ceballos
  */
 public enum TipoHabilidad {
 

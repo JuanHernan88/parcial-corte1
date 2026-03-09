@@ -5,11 +5,16 @@
 package heroes;
 
 /**
+ * Fábrica encargada de crear objetos de tipo Heroe
+ * según el tipo que se indique.
  *
  * @author juan jacobo cañas henao
  */
 public class HeroeFactory {
 
+    /**
+     * Crea un héroe según el tipo recibido.
+     */
     public static Heroe crearHeroe(String tipo, String nombre){
 
         switch(tipo){

@@ -2,18 +2,18 @@
 package vista;
 
 import heroes.*;
-import interfaces.Habilidad;
 import mensajeria.ServicioTelegram;
 import misiones.*;
-import heroes.HeroeFactory;
-import misiones.SistemaMisiones;
-import misiones.TipoHabilidad;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Ventana principal del sistema.
+ * Permite registrar héroes, crear misiones y asignarlas.
+ * 
+ * @author juan esteban hernandez
+ */
 public class VentanaPrincipal extends JFrame {
 
     private JTextField txtHeroe;
@@ -30,7 +30,9 @@ public class VentanaPrincipal extends JFrame {
     
     private SistemaMisiones sistema = new SistemaMisiones();
 
-
+    /**
+     * Constructor que crea y configura la interfaz gráfica.
+     */
     public VentanaPrincipal(){
 
         setTitle("S.H.I.E.L.D Mission Control");
@@ -39,7 +41,6 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
 
-        //  COLORES ESTILO SHIELD
         Color fondoPrincipal = new Color(45,45,45);
         Color panelColor = new Color(70,70,70);
         Color botonColor = new Color(100,100,100);
@@ -47,13 +48,11 @@ public class VentanaPrincipal extends JFrame {
 
         getContentPane().setBackground(fondoPrincipal);
 
-        // TITULO
         JLabel titulo = new JLabel("️ S.H.I.E.L.D MISSION CONTROL ️");
         titulo.setBounds(200,10,350,30);
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("Arial", Font.BOLD, 18));
         add(titulo);
-
 
         // PANEL HEROES
         JPanel panelHeroes = new JPanel();
@@ -91,7 +90,6 @@ public class VentanaPrincipal extends JFrame {
         btnHeroe.setForeground(Color.WHITE);
         panelHeroes.add(btnHeroe);
 
-
         // PANEL MISIONES
         JPanel panelMisiones = new JPanel();
         panelMisiones.setLayout(null);
@@ -128,58 +126,29 @@ public class VentanaPrincipal extends JFrame {
         btnMision.setForeground(Color.WHITE);
         panelMisiones.add(btnMision);
 
-
-        // LISTA HEROES
+        // LISTAS
         listaHeroes = new JList<>(modeloHeroes);
-        listaHeroes.setBackground(new Color(60,60,60));
-        listaHeroes.setForeground(Color.WHITE);
-
         JScrollPane scrollHeroes = new JScrollPane(listaHeroes);
-        scrollHeroes.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createLineBorder(Color.GRAY),
-                "Heroes Registrados",
-                TitledBorder.LEFT,
-                TitledBorder.TOP,
-                new Font("Arial",Font.BOLD,12),
-                Color.BLUE
-        ));
         scrollHeroes.setBounds(80,220,200,150);
         add(scrollHeroes);
 
-
-        // LISTA MISIONES
         listaMisiones = new JList<>(modeloMisiones);
-        listaMisiones.setBackground(new Color(60,60,60));
-        listaMisiones.setForeground(Color.WHITE);
-
         JScrollPane scrollMisiones = new JScrollPane(listaMisiones);
-        scrollMisiones.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createLineBorder(Color.GRAY),
-                "Misiones",
-                TitledBorder.LEFT,
-                TitledBorder.TOP,
-                new Font("Arial",Font.BOLD,12),
-                Color.BLUE
-        ));
         scrollMisiones.setBounds(400,220,200,150);
         add(scrollMisiones);
 
-
-        // BOTON ASIGNAR
         JButton btnAsignar = new JButton("Asignar Misiones");
         btnAsignar.setBounds(280,380,150,30);
-        btnAsignar.setBackground(new Color(120,120,120));
-        btnAsignar.setForeground(Color.WHITE);
         add(btnAsignar);
 
-
-        // EVENTOS
         btnHeroe.addActionListener(e -> registrarHeroe());
         btnMision.addActionListener(e -> crearMision());
         btnAsignar.addActionListener(e -> asignarMisiones());
     }
 
-
+    /**
+     * Registra un nuevo héroe en el sistema.
+     */
     private void registrarHeroe(){
 
         String nombre = txtHeroe.getText();
@@ -190,34 +159,36 @@ public class VentanaPrincipal extends JFrame {
         modeloHeroes.addElement(nombre);
     }
 
-
+    /**
+     * Crea una nueva misión.
+     */
     private void crearMision(){
 
-    String nombre = txtMision.getText();
+        String nombre = txtMision.getText();
 
-    if(nombre.isEmpty()){
-        JOptionPane.showMessageDialog(this,"Ingrese el nombre de la mision");
-        return;
+        if(nombre.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Ingrese el nombre de la mision");
+            return;
+        }
+
+        String habilidadSeleccionada =
+                comboHabilidad.getSelectedItem().toString();
+
+        TipoHabilidad habilidad =
+                TipoHabilidad.valueOf(
+                        habilidadSeleccionada.toUpperCase()
+                );
+
+        Mision m = new Mision(nombre, habilidad);
+
+        sistema.agregarMision(m);
+        modeloMisiones.addElement(nombre);
+        txtMision.setText("");
     }
 
-    String habilidadSeleccionada =
-            comboHabilidad.getSelectedItem().toString();
-
-    TipoHabilidad habilidad =
-            TipoHabilidad.valueOf(
-                    habilidadSeleccionada.toUpperCase()
-            );
-
-    Mision m = new Mision(nombre, habilidad);
-
-    sistema.agregarMision(m);
-
-    modeloMisiones.addElement(nombre);
-
-    txtMision.setText("");
-
-}
-
+    /**
+     * Asigna las misiones a los héroes disponibles.
+     */
     private void asignarMisiones(){
 
         ServicioTelegram telegram = new ServicioTelegram();

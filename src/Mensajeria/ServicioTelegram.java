@@ -1,4 +1,3 @@
-
 package mensajeria;
 
 import config.Configuracion;
@@ -7,8 +6,16 @@ import java.net.URL;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 
+/**
+ * Servicio que envía mensajes usando la API de Telegram.
+ * 
+ * @author juan esteban hernandez 
+ */
 public class ServicioTelegram implements ServicioMensajeria{
 
+    /**
+     * Envía un mensaje al chat de Telegram.
+     */
     public void enviarMensaje(String mensaje){
 
         try{
